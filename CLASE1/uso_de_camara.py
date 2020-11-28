@@ -44,3 +44,30 @@ while True:
         break
 video.release()
 cv2.destroyAllWindows()
+
+
+#----MANIPULACIÓN DE LA CAMARA DE LA LAPTOP
+
+"""
+Crear objeto para la manipulación de la camara
+"""
+import numpy as np
+import cv2
+#-------------
+video=cv2.VideoCapture(0)
+
+while True:
+    #CAPTAR IMAGEN DE LA CAMARA
+    estado,img=video.read()
+    
+    img=cv2.resize(img,(400,400),interpolation=cv2.INTER_AREA)
+    img=cv2.GaussianBlur(img,(5,5),1)
+    
+    #cv2.imshow("IMAGEN BINARIA AZUL,SIN FILTRO MORFOLOGICO",azul)
+    if cv2.waitKey(1)==ord("q"):
+        break
+video.release()
+cv2.destroyAllWindows()
+
+
+
